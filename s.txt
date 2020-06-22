@@ -1,0 +1,17 @@
+<?php
+$con=mysqli_connect("localhost","root","");
+if(!$con)
+ echo "Not Connected";
+if(!mysqli_select_db($con,"bus"))
+ echo "DB not connected";
+else
+{
+   $un=$_POST['un'];
+   $ps=$_POST['ps'];
+   $sql="INSERT INTO login(un,ps)  VALUES('$un','$ps')";
+   if(!mysqli_query($con,$sql))
+    echo "Not inserted";
+   else
+    echo "inserted";
+}
+?>
